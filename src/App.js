@@ -1,10 +1,17 @@
 
 import './App.css';
 import Docs from './components/Docs';
+import EditDocs from './components/EditDocs';
+// eslint-disable-next-line
+import { app, database } from './firebaseConfig';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <Docs/>
+    <Routes>
+      <Route path="/" element={<Docs database={database} />} />
+      <Route path="/editDocs/:id" element={<EditDocs database={database}/>} />
+    </Routes>
   );
 }
 
